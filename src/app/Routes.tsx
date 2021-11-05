@@ -7,6 +7,7 @@ import MainLayout from "../layouts/main";
 //Pages
 import Home from "../pages/Home";
 import Character from "../pages/Character";
+import EpisodesPage from "../pages/Episodes";
 
 const Routes = () => {
   return (
@@ -23,6 +24,12 @@ const Routes = () => {
         exact
         Layout={MainLayout}
         Component={Character}
+      />
+      <RouteWithLayout
+        path="/episodes"
+        exact
+        Layout={MainLayout}
+        Component={EpisodesPage}
       />
     </Switch>
   );
