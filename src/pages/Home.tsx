@@ -23,7 +23,6 @@ const Home = () => {
     RicknmortyApi.getAllCharacters().then(
       (gettedCharacters: CharacterResponse) => {
         setCharacters(gettedCharacters.results);
-        console.log(gettedCharacters.info);
         const { next, prev } = gettedCharacters.info;
         changePaginationMetadata({
           next,
