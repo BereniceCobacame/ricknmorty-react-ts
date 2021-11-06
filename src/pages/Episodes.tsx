@@ -7,16 +7,14 @@ const EpisodesPage = () => {
   const [episodes, setEpisodes] = React.useState<Episode[]>([]);
 
   React.useEffect(function () {
-    EpisdodesApi.getAllEpisodes().then((gettedEpisodes: EpisodeResponse) => {
-      setEpisodes(gettedEpisodes.results);
+    EpisdodesApi.getAllEpisodes().then((episodes: Episode[]) => {
+      setEpisodes(episodes);
     });
   }, []);
-
-  console.log(episodes)
   return (
     <>
       <h2>Episodes Page</h2>
-    <EpisodeList episodes={episodes}/>
+      <EpisodeList episodes={episodes} />
     </>
   );
 };

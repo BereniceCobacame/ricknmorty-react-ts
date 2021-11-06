@@ -12,9 +12,8 @@ const EpisodeList = ({ episodes }: Props) => {
           ({ id, name, air_date, characters, created, episode, url }) => (
             <li key={id}>
               <p>{name}</p>
-              <p>{episode}</p>
-              {/* <p>{air_date}</p>
-                <p>{episode}</p> */}
+              {/* <p>S: {episode.season}</p>
+              <p>EP: {episode.ep}</p> */}
             </li>
           )
         )}
