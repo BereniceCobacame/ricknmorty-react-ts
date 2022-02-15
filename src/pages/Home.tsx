@@ -56,25 +56,32 @@ const Home = () => {
 
   return (
     <>
-      <h1>Rick N Morty Page</h1>
-
-      <Pagination
+      {/* <Pagination
         currentPage={currentPage}
         nextEnable={!isFetching && isNextEnable}
         prevEnable={!isFetching && isPrevEnable}
         onNext={() => handlePagination(PaginationAction.Next)}
         onPrev={() => handlePagination(PaginationAction.Prev)}
-      />
-      {isFetching ? (
-        <div>
-          <h3>Cargando</h3>
-        </div>
-      ) : (
-        <>
-          <h2>Personajes</h2>
-          <CharacterList characters={characters} />
-        </>
-      )}
+      /> */}
+      <div
+        style={{
+          display: "flex",
+          justifyContent: "space-between",
+          alignItems: "center",
+        }}
+      >
+        <button>Prev</button>
+        {isFetching ? (
+          <div>
+            <h3>Cargando</h3>
+          </div>
+        ) : (
+          <>
+            <CharacterList characters={characters} />
+          </>
+        )}
+        <button>Next</button>
+      </div>
     </>
   );
 };

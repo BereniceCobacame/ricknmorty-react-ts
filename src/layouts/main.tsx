@@ -1,4 +1,5 @@
 import React from "react";
+import SideBar from "../components/SideBar";
 import "./main.css";
 
 interface Props {
@@ -7,27 +8,11 @@ interface Props {
 
 const MainLayout = ({ children }: Props) => {
   return (
-    <div style={{ display: "flex", width: "100%" }}>
-      <div
-        style={{
-          position: "sticky",
-          top: "0px",
-          height: "100vh",
-          background: "gray",
-        }}
-      >
-        <div style={{ padding: "2rem" }}>
-          <h3>SideBar</h3>
-        </div>
+    <div className="main-layout">
+      <div style={{ width: "550px" }}>
+        <SideBar />
       </div>
-      <div
-        style={{
-          backgroundColor: "lightpink",
-          padding: "2rem",
-        }}
-      >
-        {children}
-      </div>
+      <div className="children-container">{children}</div>
     </div>
   );
 };
