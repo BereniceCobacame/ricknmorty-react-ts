@@ -5,6 +5,7 @@ import { Character, CharacterResponse } from "../character/types";
 import { PaginationAction } from "../types";
 import Pagination from "../components/Pagination";
 import usePagination from "../hooks/usePagination";
+import "./index.css";
 
 const Home = () => {
   const [characters, setCharacters] = React.useState<Character[]>([]);
@@ -66,11 +67,11 @@ const Home = () => {
       <div
         style={{
           display: "flex",
-          justifyContent: "space-between",
-          alignItems: "center",
         }}
       >
-        <button>Prev</button>
+        <div>
+          <button className="pagination-button">Prev</button>
+        </div>
         {isFetching ? (
           <div>
             <h3>Cargando</h3>
@@ -80,7 +81,9 @@ const Home = () => {
             <CharacterList characters={characters} />
           </>
         )}
-        <button>Next</button>
+        <div>
+          <button className="pagination-button">Next</button>
+        </div>
       </div>
     </>
   );
