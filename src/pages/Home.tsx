@@ -8,53 +8,6 @@ import usePagination from "../hooks/usePagination";
 import "./index.css";
 
 const Home = () => {
-  const [characters, setCharacters] = React.useState<Character[]>([]);
-  const {
-    changePaginationMetadata,
-    isNextEnable,
-    isPrevEnable,
-    nextPage,
-    prevPage,
-    currentPage,
-    changeCurrentPage,
-  } = usePagination();
-  const [isFetching, setIsFetching] = React.useState<boolean>(true);
-
-  React.useEffect(function () {
-    RicknmortyApi.getAllCharacters().then(
-      (gettedCharacters: CharacterResponse) => {
-        setCharacters(gettedCharacters.results);
-        console.log(gettedCharacters.info);
-        const { next, prev } = gettedCharacters.info;
-        changePaginationMetadata({
-          next,
-          prev,
-        });
-        setIsFetching(false);
-      }
-    );
-  }, []);
-
-  const handlePagination = (action: PaginationAction) => {
-    setIsFetching(true);
-    const requestParam: string =
-      action === PaginationAction.Next ? nextPage : prevPage;
-    RicknmortyApi.getAllCharacters(requestParam).then(
-      (gettedCharacters: CharacterResponse) => {
-        setCharacters(gettedCharacters.results);
-        console.log(gettedCharacters.info);
-        const { next, prev } = gettedCharacters.info;
-        changePaginationMetadata({
-          next,
-          prev,
-        });
-        changeCurrentPage(action);
-
-        setIsFetching(false);
-      }
-    );
-  };
-
   return (
     <>
       {/* <Pagination
@@ -85,6 +38,7 @@ const Home = () => {
           <button className="pagination-button">Next</button>
         </div>
       </div>
+      <h2>Home Page</h2>
     </>
   );
 };
