@@ -5,6 +5,7 @@ import { Character, CharacterResponse } from "../character/types";
 import { PaginationAction } from "../types";
 import Pagination from "../components/Pagination";
 import usePagination from "../hooks/usePagination";
+import "./index.css";
 
 const Home = () => {
   const [characters, setCharacters] = React.useState<Character[]>([]);
@@ -51,28 +52,37 @@ const Home = () => {
       }
     );
   };
-
   return (
     <>
-      <h1>Rick N Morty Page</h1>
-
-      <Pagination
+      {/* <Pagination
         currentPage={currentPage}
         nextEnable={!isFetching && isNextEnable}
         prevEnable={!isFetching && isPrevEnable}
         onNext={() => handlePagination(PaginationAction.Next)}
         onPrev={() => handlePagination(PaginationAction.Prev)}
-      />
-      {isFetching ? (
+      /> */}
+      <div
+        style={{
+          display: "flex",
+        }}
+      >
         <div>
-          <h3>Cargando</h3>
+          <button className="pagination-button">Prev</button>
         </div>
-      ) : (
-        <>
-          <h2>Personajes</h2>
-          <CharacterList characters={characters} />
-        </>
-      )}
+        {isFetching ? (
+          <div>
+            <h3>Cargando</h3>
+          </div>
+        ) : (
+          <>
+            <CharacterList characters={characters} />
+          </>
+        )}
+        <div>
+          <button className="pagination-button">Next</button>
+        </div>
+      </div>
+      <h2>Home Page</h2>
     </>
   );
 };
