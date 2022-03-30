@@ -1,6 +1,6 @@
 import React from "react";
+import SideBar from "../components/SideBar";
 import "./main.css";
-import Header from "../components/Header";
 
 interface Props {
   children: React.ReactNode;
@@ -8,10 +8,12 @@ interface Props {
 
 const MainLayout = ({ children }: Props) => {
   return (
-    <>
-      <Header />
-      <div className="layout-container">{children}</div>
-    </>
+    <div className="main-layout">
+      <div style={{ width: "550px" }}>
+        <SideBar />
+      </div>
+      <div className="children-container">{children}</div>
+    </div>
   );
 };
 export default MainLayout;
